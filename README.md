@@ -1,11 +1,34 @@
-_G.Farm = true
-_G.Test = true
- 
+
+local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
+local window = DrRayLibrary:Load("SCRIPT FOR WESTBOUND", "Default")
+
+local tab = DrRayLibrary.newTab("Main", "ImageIdHere")
+
+tab.newToggle("Auto Farm", "- Rob Shops -", true, function(toggleState)
+    if toggleState then
+        _G.Farm = true
+        _G.Test = true
+    else
+        _G.Farm = false
+        _G.Test = false
+    end
+end)
+
+
+
+tab.newSlider("WalkSpeed", "Player WalkSpeed ", 100, false, function(num)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = num
+end)
+
+tab.newButton("Reset Character", "Change health to 0", function()
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+end)
+
 
 
 spawn(function()
 if _G.Farm == true then
-    wait(1)
+        wait(1)
     local args = {
         [1] = "Grayridge",
         [2] = false,
@@ -27,6 +50,7 @@ if _G.Farm == true then
     wait(0.1)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1475.2981, 132.849579, 1670.52173, 0.997966886, 7.79490534e-08, -0.0637350082, -7.90242325e-08, 1, -1.43487107e-08, 0.0637350082, 1.93561487e-08, 0.997966886)
     wait(1)
+
 end
 end)
 
