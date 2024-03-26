@@ -5,7 +5,6 @@ _G.Test = true
 
 spawn(function()
 if _G.Farm == true then
-    game.Players.LocalPlayer.Character.Humanoid.health = 0
     wait(1)
     local args = {
         [1] = "Grayridge",
